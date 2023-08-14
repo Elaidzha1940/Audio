@@ -15,7 +15,8 @@ import SwiftUI
 struct AudioApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(expandSheet: .constant(true), animation: Namespace().wrappedValue)
+                .preferredColorScheme(.dark)
         }
     }
 }
