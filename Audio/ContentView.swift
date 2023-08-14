@@ -16,6 +16,8 @@ struct ContentView: View {
     
     let audioFileName = "dj"
     
+    @State private var player: AVAudioPlayer?
+    
     @State private var isPlaying = false
     @State private var totalTime: TimeInterval = 0.0
     @State private var currentTime: TimeInterval = 0.0
@@ -30,6 +32,25 @@ struct ContentView: View {
           
             
         }
+    }
+    
+    private func setupAudio() {
+        guard let url = Bundle.main.url(forResource: audioFileName, withExtension: "mp3")
+        else {
+            return
+        }
+        do {
+            player = try AVAudioPlayer(contentsOf: url)
+            player?.prepareToPlay()
+            totalTime = player?.duration ?? 0.0
+        } catch {
+            print("Error oading")
+        }
+    }
+    private func playAudio() {
+        player?.play()
+        isPlaying = true
+         
     }
 }
 
