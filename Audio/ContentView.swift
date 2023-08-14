@@ -52,6 +52,18 @@ struct ContentView: View {
         isPlaying = true
          
     }
+    private func stopAudio() {
+        player?.pause()
+        isPlaying = false
+    }
+    private func updateProgress() {
+        guard let player = player else { return }
+        currentTime = player.currentTime
+    }
+    private func seekAudio(to time: TimeInterval) {
+        player?.currentTime = time
+    }
+    private func 
 }
 
 struct ContentView_Previews: PreviewProvider {
