@@ -11,6 +11,7 @@
 		E4D8D63B2A8A43C400BA9093 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4D8D63A2A8A43C400BA9093 /* ContentView.swift */; };
 		E4D8D63D2A8A43C500BA9093 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D8D63C2A8A43C500BA9093 /* Assets.xcassets */; };
 		E4D8D6412A8A43C500BA9093 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4D8D6402A8A43C500BA9093 /* Preview Assets.xcassets */; };
+		E4D8D6492A8A517200BA9093 /* dj.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E4D8D6482A8A517200BA9093 /* dj.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		E4D8D63C2A8A43C500BA9093 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4D8D63E2A8A43C500BA9093 /* Audio.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Audio.entitlements; sourceTree = "<group>"; };
 		E4D8D6402A8A43C500BA9093 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E4D8D6482A8A517200BA9093 /* dj.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = dj.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 		E4D8D6372A8A43C400BA9093 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
+				E4D8D6472A8A516200BA9093 /* Music */,
 				E4D8D6382A8A43C400BA9093 /* AudioApp.swift */,
 				E4D8D63A2A8A43C400BA9093 /* ContentView.swift */,
 				E4D8D63C2A8A43C500BA9093 /* Assets.xcassets */,
@@ -67,6 +70,14 @@
 				E4D8D6402A8A43C500BA9093 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E4D8D6472A8A516200BA9093 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				E4D8D6482A8A517200BA9093 /* dj.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4D8D6412A8A43C500BA9093 /* Preview Assets.xcassets in Resources */,
+				E4D8D6492A8A517200BA9093 /* dj.mp3 in Resources */,
 				E4D8D63D2A8A43C500BA9093 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
