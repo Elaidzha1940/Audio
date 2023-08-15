@@ -66,8 +66,13 @@ struct ContentView: View {
             }
             .ignoresSafeArea(.container, edges: .all)
         }
+        
+        .onAppear(perform: setupAudio)
+        .onReceive(Timer.publish(every: 0.1, on: .main, in: .common).autoconnect()) { _ in
+            updateProgress()
+        }
     }
-    
+
     private func setupAudio() {
         guard let url = Bundle.main.url(forResource: audioFileName, withExtension: "mp3")
         else {
