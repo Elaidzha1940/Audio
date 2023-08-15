@@ -187,7 +187,32 @@ struct ContentView: View {
                 VStack(spacing: spacing) {
                     
                     HStack(spacing: 15 ) {
+                        Image(systemName: "speaker.fill")
                         
+                        Capsule()
+                            .fill(.ultraThinMaterial)
+                            .environment(\.colorScheme, .light)
+                            .frame(height: 5)
+                        Image(systemName: "speaker.wave.3.fill")
+                    }
+                    
+                    HStack(alignment: .top, spacing: size.width * 0.18) {
+                        
+                        Button {
+                            //action
+                        } label: {
+                            Image(systemName: "quote.bubble")
+                                .font(.title2)
+                        }
+
+                        VStack(spacing: 6) {
+                            
+                           Image(systemName: "airpodspro.chargingcase.wireless.fill")
+                                .font(.title2)
+                        }
+                        Text("Elaidzha's Airpods")
+                            .font(.caption)
+                            .foregroundColor(.white)
                     }
                 }
             }
