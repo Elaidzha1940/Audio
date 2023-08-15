@@ -227,6 +227,7 @@ struct ContentView: View {
                     .padding()
                 }
             }
+            .accentColor(.white)
         }
     }
 }
