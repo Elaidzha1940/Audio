@@ -63,7 +63,7 @@ struct ContentView: View {
     private func seekAudio(to time: TimeInterval) {
         player?.currentTime = time
     }
-    private func 
+   // private func
 }
 
 struct ContentView_Previews: PreviewProvider {
