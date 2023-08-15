@@ -40,12 +40,12 @@ struct ContentView: View {
                         Rectangle()
                         Image("grandpa")
                             .blur(radius: 55)
-                           // .opacity(animationContent ? 1 : 0)
+                        // .opacity(animationContent ? 1 : 0)
                     })
                 
                 VStack(spacing: 15) {
                     GeometryReader {
-                         
+                        
                         let size = $0.size
                         Image("grandpa")
                             .resizable()
@@ -55,6 +55,9 @@ struct ContentView: View {
                     }
                     .frame(height: size.width - 50)
                     .padding(.vertical, size.height < 700 ? 10 : 30)
+                    
+                    PlayerView(size)
+                        .offset(y: animationContent)
                 }
                 .padding(.top, safeArea.top + (safeArea.bottom == 0 ? 10 : 0))
                 .padding(.bottom, safeArea.bottom == 0 ? 10 : safeArea.bottom)
@@ -62,6 +65,7 @@ struct ContentView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                 .clipped()
             }
+            .ignoresSafeArea(.container, edges: .all)
         }
     }
     
@@ -78,6 +82,7 @@ struct ContentView: View {
             print("Error oading")
         }
     }
+    
     private func playAudio() {
         player?.play()
         isPlaying = true
@@ -98,6 +103,54 @@ struct ContentView: View {
         let minute = Int() / 60
         let seconds = Int(time) % 60
         return String(format: "%02d:%02d", minute, seconds)
+    }
+    
+    @ViewBuilder
+    
+    func PlayerView(_ mainSize: CGSize) -> some View {
+        
+        GeometryReader {
+            
+            let size = $0.size
+            let spacing = size.height * 0.04
+            
+            VStack(spacing: spacing) {
+                VStack(spacing: spacing) {
+                    HStack(alignment: .center, spacing: 15) {
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Dj Mix")
+                                .font(.system(size: 30, weight: .bold, design: .monospaced))
+                            
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Button {
+                            //action
+                        } label: {
+                            Image(systemName: "ellipsis.circle.fill")
+                                .foregroundColor(.white)
+                                .padding(10)
+                                .background(
+                                    Circle()
+                                        .fill(.ultraThinMaterial)
+                                        .environment(\.colorScheme, .light)
+                                )
+                        }
+                    }
+                    
+                    Slider(value: Binding(get: {
+                         currentTime
+                    }, set: { newValue in
+                        seekAudio(to: newValue)
+                    }), in: 0...totalTime)
+                    .foregroundColor(.white)
+                    
+                    HStack {
+                        Text(timeString(time: currentTime))
+                    }
+                }
+            }
+        }
     }
 }
 
