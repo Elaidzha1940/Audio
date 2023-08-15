@@ -40,8 +40,15 @@ struct ContentView: View {
                         Rectangle()
                         Image("grandpa")
                             .blur(radius: 55)
-                            .opacity(animationContent ? 1 : 0)
+                           // .opacity(animationContent ? 1 : 0)
                     })
+                
+                VStack(spacing: 15) {
+                    GeometryReader {
+                         
+                        let size = $0.size
+                    }
+                }
             }
         }
     }
@@ -77,7 +84,7 @@ struct ContentView: View {
     }
     private func timeString(time: TimeInterval) -> String {
         let minute = Int() / 60
-        let second = Int(time) % 60
+        let seconds = Int(time) % 60
         return String(format: "%02d:%02d", minute, seconds)
     }
 }
