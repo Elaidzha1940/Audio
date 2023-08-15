@@ -51,8 +51,16 @@ struct ContentView: View {
                             .resizable()
                             .aspectRatio(contentMode: .fill)
                             .frame(width: size.width, height: size.height)
+                            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
                     }
+                    .frame(height: size.width - 50)
+                    .padding(.vertical, size.height < 700 ? 10 : 30)
                 }
+                .padding(.top, safeArea.top + (safeArea.bottom == 0 ? 10 : 0))
+                .padding(.bottom, safeArea.bottom == 0 ? 10 : safeArea.bottom)
+                .padding(.horizontal, 20)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                .clipped()
             }
         }
     }
