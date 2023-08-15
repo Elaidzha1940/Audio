@@ -28,9 +28,21 @@ struct ContentView: View {
     
     var body: some View {
         
-        VStack {
-          
+        GeometryReader  {
             
+            let size = $0.size
+            let safeArea = $0.safeAreaInsets
+            
+            ZStack {
+                Rectangle()
+                    .fill(.ultraThickMaterial)
+                    .overlay(content: {
+                        Rectangle()
+                        Image("grandpa")
+                            .blur(radius: 55)
+                            .opacity(animationContent ? 1 : 0)
+                    })
+            }
         }
     }
     
@@ -50,7 +62,7 @@ struct ContentView: View {
     private func playAudio() {
         player?.play()
         isPlaying = true
-         
+        
     }
     private func stopAudio() {
         player?.pause()
@@ -63,7 +75,11 @@ struct ContentView: View {
     private func seekAudio(to time: TimeInterval) {
         player?.currentTime = time
     }
-   // private func
+    private func timeString(time: TimeInterval) -> String {
+        let minute = Int() / 60
+        let second = Int(time) % 60
+        return String(format: "%02d:%02d", minute, seconds)
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -86,6 +102,6 @@ extension View {
             return 0
         }
         return 0
-
+        
     }
 }
