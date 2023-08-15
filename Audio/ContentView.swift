@@ -40,7 +40,6 @@ struct ContentView: View {
                         Rectangle()
                         Image("grandpa")
                             .blur(radius: 55)
-                        // .opacity(animationContent ? 1 : 0)
                     })
                 
                 VStack(spacing: 15) {
@@ -57,7 +56,7 @@ struct ContentView: View {
                     .padding(.vertical, size.height < 700 ? 10 : 30)
                     
                     PlayerView(size)
-                        .offset(y: animationContent)
+                    
                 }
                 .padding(.top, safeArea.top + (safeArea.bottom == 0 ? 10 : 0))
                 .padding(.bottom, safeArea.bottom == 0 ? 10 : safeArea.bottom)
@@ -106,9 +105,7 @@ struct ContentView: View {
     }
     
     @ViewBuilder
-    
     func PlayerView(_ mainSize: CGSize) -> some View {
-        
         GeometryReader {
             
             let size = $0.size
@@ -119,7 +116,7 @@ struct ContentView: View {
                     HStack(alignment: .center, spacing: 15) {
                         VStack(alignment: .leading, spacing: 4) {
                             Text("Dj Mix")
-                                .font(.system(size: 30, weight: .bold, design: .monospaced))
+                                .font(.system(size: 30, weight: .bold, design: .default))
                             
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -129,7 +126,7 @@ struct ContentView: View {
                         } label: {
                             Image(systemName: "ellipsis.circle.fill")
                                 .foregroundColor(.white)
-                                .padding(10)
+                                .padding(5)
                                 .background(
                                     Circle()
                                         .fill(.ultraThinMaterial)
@@ -139,7 +136,7 @@ struct ContentView: View {
                     }
                     
                     Slider(value: Binding(get: {
-                         currentTime
+                        currentTime
                     }, set: { newValue in
                         seekAudio(to: newValue)
                     }), in: 0...totalTime)
@@ -172,7 +169,6 @@ struct ContentView: View {
                                 isPlaying ? stopAudio() : playAudio()
                             }
                     }
-
                     
                     Button {
                         //action
@@ -195,6 +191,7 @@ struct ContentView: View {
                             .frame(height: 5)
                         Image(systemName: "speaker.wave.3.fill")
                     }
+                    .padding()
                     
                     HStack(alignment: .top, spacing: size.width * 0.18) {
                         
@@ -203,17 +200,26 @@ struct ContentView: View {
                         } label: {
                             Image(systemName: "quote.bubble")
                                 .font(.title2)
+                                .foregroundColor(.gray)
+                            
                         }
-
+                        
                         VStack(spacing: 6) {
                             
-                           Image(systemName: "airpodspro.chargingcase.wireless.fill")
+                            Image(systemName: "airpodspro.chargingcase.wireless.fill")
                                 .font(.title2)
+                                .foregroundColor(.gray)
+                            
+                            Text("Elaidzha's Airpods")
+                                .font(.caption)
+                                .foregroundColor(.gray)
                         }
-                        Text("Elaidzha's Airpods")
-                            .font(.caption)
-                            .foregroundColor(.white)
+                        
+                        Image(systemName: "list.dash")
+                            .font(.title2)
+                            .foregroundColor(.gray)
                     }
+                    .padding()
                 }
             }
         }
