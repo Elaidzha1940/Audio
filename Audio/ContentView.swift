@@ -146,7 +146,48 @@ struct ContentView: View {
                     .foregroundColor(.white)
                     
                     HStack {
+                        
                         Text(timeString(time: currentTime))
+                        Spacer()
+                        Text(timeString(time: totalTime))
+                    }
+                }
+                .frame(height: size.height / 2.5, alignment: .top)
+                
+                HStack(spacing: size.width * 0.18) {
+                    
+                    Button {
+                        //action
+                    } label: {
+                        Image(systemName: "backward.fill")
+                            .font(size.height < 300 ? .system(size: 30, weight: .bold, design: .monospaced) : .system(size: 30, weight: .bold, design: .monospaced))
+                    }
+                    
+                    Button {
+                        //action
+                    } label: {
+                        Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                            .font(size.height < 300 ? .largeTitle : .system(size: 50))
+                            .onTapGesture {
+                                isPlaying ? stopAudio() : playAudio()
+                            }
+                    }
+
+                    
+                    Button {
+                        //action
+                    } label: {
+                        Image(systemName: "forward.fill")
+                            .font(size.height < 300 ? .system(size: 30, weight: .bold, design: .monospaced) : .system(size: 30, weight: .bold, design: .monospaced))
+                    }
+                }
+                .foregroundColor(.white)
+                .frame(maxWidth: .infinity)
+                
+                VStack(spacing: spacing) {
+                    
+                    HStack(spacing: 15 ) {
+                        
                     }
                 }
             }
