@@ -47,6 +47,10 @@ struct ContentView: View {
                     GeometryReader {
                          
                         let size = $0.size
+                        Image("grandpa")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: size.width, height: size.height)
                     }
                 }
             }
